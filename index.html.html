@@ -1,0 +1,58 @@
+// Shopify Bulk Fulfillment App - Static Version for Vercel Deployment
+
+// ✅ Instructions:
+// 1. Create a new GitHub repo
+// 2. Push this HTML file to your repo (e.g., index.html)
+// 3. Go to Vercel.com, link your GitHub account, import this repo
+// 4. Vercel will auto-deploy and give you a live URL like: https://yourapp.vercel.app
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify Bulk Fulfillment</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center py-10">
+  <div class="max-w-4xl w-full bg-white shadow-xl rounded-xl p-6">
+    <h1 class="text-3xl font-bold text-center mb-6">Shopify Bulk Fulfillment</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <button onclick="showSection('fulfill')" class="bg-blue-500 text-white py-3 rounded-lg">Mark as Fulfill</button>
+      <button onclick="showSection('create')" class="bg-green-500 text-white py-3 rounded-lg">Create Fulfillment</button>
+      <button onclick="showSection('replace')" class="bg-yellow-500 text-white py-3 rounded-lg">Replace Tracking</button>
+    </div>
+
+    <!-- Sections -->
+    <div id="fulfill" class="step-section hidden">
+      <h2 class="text-xl font-semibold mb-4">Mark as Fulfill</h2>
+      <p class="mb-2">Required: Order Number</p>
+      <input type="file" class="mb-4 border p-2 w-full">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded">Fulfill Orders</button>
+    </div>
+
+    <div id="create" class="step-section hidden">
+      <h2 class="text-xl font-semibold mb-4">Create Fulfillment</h2>
+      <p class="mb-2">Required: Order Number, Tracking Number</p>
+      <p class="mb-2">Optional: SKU, Quantity, Courier, Tracking URL</p>
+      <input type="file" class="mb-4 border p-2 w-full">
+      <button class="bg-green-600 text-white px-4 py-2 rounded">Start Fulfillment</button>
+    </div>
+
+    <div id="replace" class="step-section hidden">
+      <h2 class="text-xl font-semibold mb-4">Replace Tracking</h2>
+      <p class="mb-2">Required: Order Number, New Tracking Number</p>
+      <p class="mb-2">Optional: Courier, Tracking URL</p>
+      <input type="file" class="mb-4 border p-2 w-full">
+      <button class="bg-yellow-600 text-white px-4 py-2 rounded">Replace Tracking</button>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.step-section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
